@@ -1,0 +1,55 @@
+{
+	"auto_complete_commit_on_tab": false,
+	"auto_complete_delay": 0,
+	"auto_complete_with_fields": true,
+	"auto_indent": true,
+	"auto_match_enabled": true,
+	"bold_folder_labels": true,
+	"caret_style": "wide",
+	"color_scheme": "Packages/Color Scheme - Default/Monokai Bright.tmTheme",
+	"default_encoding": "UTF-8",
+	"fade_fold_buttons": false,
+	"fold_buttons": true,
+	"font_face": "Consolas",
+	"font_options":
+	[
+	],
+	"font_size": 17,
+	"highlight_line": true,
+	"hot_exit": false,
+	"ignored_packages":
+	[
+	],
+	"match_brackets_angle": true,
+	"match_brackets_content": true,
+	"match_tags": true,
+	"remember_open_files": false,
+	"smart_indent": true,
+	"tab_size": 4,
+	"word_wrap": "false"
+}
+
+
+
+[
+    { "keys": ["ctrl+["], "command": "exit_insert_mode"},
+    { "keys": ["ctrl+h"], "command": "left_delete"},    
+    { "keys": ["alt+h"], "command": "move", "args": {"by": "characters", "forward": false} },
+    { "keys": ["alt+l"], "command": "move", "args": {"by": "characters", "forward": true} },
+    { "keys": ["alt+k"], "command": "move", "args": {"by": "lines", "forward": false} },
+    { "keys": ["alt+j"], "command": "move", "args": {"by": "lines", "forward": true} },
+    { "keys": ["ctrl+j"], "command": "insert", "args": {"characters": "\n"} },
+    { "keys": ["ctrl+i"], "command": "auto_complete" },
+    { "keys": ["ctrl+i"], "command": "replace_completion_with_auto_complete", "context":
+        [
+            { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
+            { "key": "auto_complete_visible", "operator": "equal", "operand": false },
+            { "key": "setting.tab_completion", "operator": "equal", "operand": true }
+        ]
+    }
+]
+
+
+
+
+import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())

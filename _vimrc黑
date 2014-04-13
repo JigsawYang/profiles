@@ -1,0 +1,132 @@
+"Default VIM Settings of Jerry Max.
+"This .vimrc File Contains Syntax Settings.
+"Need NOT Set 'colorscheme xxx.vim'.
+"Can be Used for both Windows and Linux!"
+
+
+"Set Options
+set	title
+set ruler
+set autoindent
+set smartindent
+set smarttab
+"set cindent
+set hlsearch
+set incsearch
+set number
+set showcmd
+set showmode
+set showmatch
+set nobackup
+set cursorline
+set modifiable
+set tabstop=4
+set backspace=2
+set background=dark
+set shiftwidth=4
+set mouse=a
+set splitbelow
+set textwidth=99
+set showtabline=2
+set laststatus=2
+set cmdheight=2
+set guioptions-=T
+set guioptions-=m
+set fileencoding=utf-8
+set encoding=utf-8
+set statusline=\ %F\ \ %m\ \ %y\ \ row:%l\ \ col:%v\ \ last:%L\ \ %P\ \ asc:%Bh\ \ fmt:%{&ff}
+if has("win32")
+	set guifont=Consolas:h14
+	set lines=32 columns=156
+	winpos 20 10
+	language english
+	set path=.,D:/PyPro/**
+else
+	set lines=32 columns=128
+	set guifont=ubuntu\ mono\ 13
+endif
+
+"Set Highlight Colors
+syntax clear
+syntax reset
+syntax on
+hi	Normal		guifg=green		guibg=#000000	gui=none
+hi	Include		guifg=#10C0B0	guibg=bg	gui=none
+hi	PreProc		guifg=#10C0B0	guibg=bg 	gui=none
+hi	Macro		guifg=purple	guibg=bg 	gui=none
+hi	Constant	guifg=cyan		guibg=bg	gui=none
+hi	String		guifg=cyan		guibg=bg	gui=none
+hi	Number		guifg=white		guibg=bg	gui=none
+hi	Special		guifg=lightblue	guibg=bg	gui=none
+hi	Type		guifg=#FFFFFF	guibg=bg 	gui=none
+hi	Statement	guifg=#FFFFFF	guibg=bg	gui=none
+hi	Function	guifg=yellow	guibg=bg 	gui=none
+hi	Identifier	guifg=white		guibg=bg	gui=none
+hi	SpecialKey	guifg=fg		guibg=bg	gui=none
+hi	Operator	guifg=fg		guibg=bg	gui=none
+hi	Comment		guifg=darkgray	guibg=bg	gui=none
+hi 	Title		guifg=fg		guibg=bg	gui=none
+hi	LineNr		guifg=darkgray	gui=none
+hi	CursorLine	guifg=bg		guibg=#77BBFF	gui=none
+hi  StatusLine	guifg=bg		guibg=#00BF00	gui=none
+hi	PmenuSel	guifg=white		guibg=darkred	gui=none
+hi	Pmenu		guifg=white		guibg=#000060	gui=none
+hi	Search		guifg=black		guibg=green		gui=none
+hi	NonText		guifg=fg		guibg=bg		gui=none
+hi	Directory	guifg=fg		guibg=bg	    gui=none
+hi	Visual		guifg=white		guibg=darkgreen	gui=none
+hi 	ModeMsg		guifg=white		guibg=darkred	gui=none
+hi	ErrorMsg	guifg=white		guibg=darkred	gui=none
+hi	MoreMsg		guifg=white		guibg=darkred	gui=none
+hi	Question	guifg=white		guibg=darkgreen	gui=none
+
+
+"Set keys
+filetype plugin on
+nmap <silent> <F2> : nohl<cr>
+nmap <silent> <F3> : leftabove Vexplore<cr>
+nmap <silent> <F12> : !python.exe %<cr>
+nmap <silent> <c-s> : w<cr>
+imap <silent> <F2> <ESC><s-:>nohl<cr>
+imap <silent> <F3> <ESC><s-:>leftabove Vexplore<cr>
+imap <silent> <F12> <ESC><s-:>w<cr><ESC><s-:>!python.exe %<cr> 
+imap <silent> <c-s> <ESC><s-:>w<cr>
+imap <m-h> <Left>
+imap <m-j> <Down>
+imap <m-k> <Up>
+imap <m-l> <Right>
+imap <m-b> <c-Left>
+imap <m-e> <c-Right>
+imap <c-d> <Delete>
+imap <c-l> <c-x><c-l>
+set tags=tags;
+set autochdir 
+
+"Set Plugins
+let g:netrw_winsize=20
+let g:netrw_liststyle=2
+
+"Set tagbar
+let g:tagbar_right = 1                            
+let g:tagbar_width = 24                            
+nnoremap <silent> <F8> :TagbarToggle<CR>       
+"autocmd VimEnter * nested :call tagbar#autoopen(1)  
+
+"Set Winmanager
+let g:winManagerWindowLayout = "FileExplorer"
+let g:winManagerWidth = 20 
+nmap <silent> <F4> : WMToggle<cr>
+
+"Set snipMate
+let g:snippets_dir = "D:/Vim/vimfiles/snippets"
+
+"Set Template
+function Py_ForTag()    
+	let str1 = "for  in range():\n\t\n"
+	silent put! = str1
+endfunction
+imap <m-1> <ESC><s-:>call Py_ForTag()<cr><ESC><Up><Right>i
+
+"Set pydiction
+let g:pydiction_location = 'D:/Vim/pydiction/complete-dict'
+let g:pydiction_menu_height = 10 
